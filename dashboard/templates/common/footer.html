@@ -13,20 +13,20 @@
 <!-- REQUIRED SCRIPTS -->
 <script>         
 
-  var label = JSON.parse('{{ label|safe }}');
-  console.log(label)
+  var label =[
+  {% for sale in salesData %}
+      '{{ sale.product }}',
+  {% endfor %}
+];
+  console.log(label);
 
-  var data = JSON.parse('{{ j_data|safe }}');
+  var data = [
+  {% for sale in salesData %}
+      '{{ sale.price }}',
+  {% endfor %}
+];
   console.log(data)
 
-  var sales_json = JSON.parse('{{ sales_json|safe }}');
-  console.log(sales_json)
-
-  var date = sales_json.map(item => item.fields.date);
-  console.log(date)
-
-  var price = sales_json.map(item => item.fields.price);
-  console.log(price)
 
 
 </script>

@@ -8,7 +8,7 @@ class Products(models.Model):
     price=models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return self.type
     
 class Sales(models.Model):
     date=models.DateField()

@@ -11,13 +11,17 @@ def homepage(request):
     salesData = Sales.objects.all()
     sales_json = serializers.serialize('json', salesData)
     sales_json=json.loads(sales_json)
+    label = [ ]
+    data = [ ]
+    for sales in salesData:
+        print(sales.date)
 
-    label = [ 'jan',
-        'feb',
-        'march' ]
-    data = [ 1,100,5000]
-    label=json.dumps(label)
-    data=json.dumps(data)
+        label.append(sales.date)
+        data.append(sales.price)
+
+
+    # label=json.dumps(label)
+    # data=json.dumps(data)
     context={ 
         'sales_json':sales_json,
         'salesData':salesData,
