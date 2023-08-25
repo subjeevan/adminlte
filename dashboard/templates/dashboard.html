@@ -117,11 +117,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                {% for salesDatas in salesData %}
+             {% if salesData %} 
+             {% for salesDatas in salesData %}
                   <tr>
                     
                     <td>
-                      {{salesDatas.date}}
+                      {{salesDatas.product__name}}
                     </td>
                     <td>
                       <img src="{% static 'dist/img/default-150x150.png' %}" alt="Product 1"
@@ -131,7 +132,7 @@
                     <td> Rs. {{salesDatas.price}}</td>
 
                   </tr>
-                  {% endfor %}
+                  {% endfor %} {% endif %}   
                   </tbody>
               </table>
             </div>

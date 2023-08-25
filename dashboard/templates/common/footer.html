@@ -15,7 +15,7 @@
 
   var label =[
   {% for sale in salesData %}
-      '{{ sale.product }}',
+      '{{ sale.product__name }}',
   {% endfor %}
 ];
   console.log(label);
